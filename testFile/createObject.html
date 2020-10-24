@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象的四种方法</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    // 1字面量
+    var object1 = {
+        name: 'person1',
+    }
+    console.log(object1)
+    // 2构造函数创建对象
+    var object2 = new Object()
+    object2.name = 'person2'
+    console.log(object2)
+    // 3使用工厂模式创建对象
+    function object33 (name) {
+        var obj = new Object()
+        obj.name = name
+        return obj
+    }
+    var object3 = object33('person3')
+    console.log(object3)
+    // 4使用构造函数创建对象
+    function object44 (name) {
+        this.name = name
+    }
+    var object4 = new object44('person4')
+    console.log(object4)
+
+</script>
+</html>

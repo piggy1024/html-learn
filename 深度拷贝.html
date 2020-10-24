@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手写深度拷贝</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    function deepClone(source){
+        const targetObj = source.constructor === Array ? [] : {};
+        for(let keys in source){
+            if(source[keys] && typeof source[keys] === 'object'){
+                targetObj[keys] = source[keys].constructor === Array ? [] : {};
+                targetObj[keys] = deepClone(source[keys])
+            }else{
+                targetObj[keys] = source[keys]
+            }
+        }
+        return targetObj
+    }
+    obj = {
+        name: 'piggy',
+        age: 11,
+        family : {sister: 'xxx', age: 22}
+    }
+    console.log("obj为:")
+    console.log(obj)
+    x = deepClone(obj)
+    console.log("深拷贝obj的x如下:")
+    console.log(x)
+
+    console.log("修改x的age为12以及familly的sister为aaa")
+    x.age = 12
+    x.family.sister = 'aaa'
+    console.log('修改后的x为:')
+    console.log(x)
+    console.log('修改后的x后的obj为:')
+    console.log(obj)
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手写call</title>
+  </head>
+
+
+  <body>
+   
+  </body>
+  <script type="text/javascript">
+    Function.prototype.myCall = function(content, ...parm) {
+      if(typeof content === 'function' || typeof content === 'object'){
+        content = content || window
+      } else {
+        content = Object.create(null)
+      }
+      let fn=""
+      content[fn] = this
+      const res =  content[fn](...parm)
+
+      delete content[fn]
+      return res
+
+    }
+    let person = {
+      name: '张三'
+    }
+    function sayHi(sex, age) {
+      console.log(this.name +"年龄:" + age + "性别:"+ sex)
+    }
+    sayHi.myCall(person, '男' , 23)
+  </script>
+</html>

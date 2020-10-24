@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>模拟表格</title>
+</head>
+<body>
+
+<style type="text/css" rel="stylesheet">
+    .table {
+        display: table;
+        border: 1px solid #000;
+        margin: 5px;
+        width: 100%;
+        height: 100%
+        /*display: table时padding会失效*/
+    }
+    .row {
+        text-align: center;
+        display: table-row;
+        border: 1px solid #000;
+        /*display: table-row时margin、padding同时失效*/
+    }
+    .cell {
+        display: table-cell;
+        border: 1px solid #cccccc;
+        padding: 5px;
+        /*display: table-cell时margin会失效*/
+    }
+</style>
+<!-- <div class="table">
+    <div class="row">
+        <div class="cell">张三</div>
+        <div class="cell">李四</div>
+        <div class="cell">王五</div>
+    </div>
+    <div class="row">
+        <div class="cell">张三</div>
+        <div class="cell">李四</div>
+        <div class="cell">王五</div>
+    </div>
+</div> -->
+<div class="table">
+<div class="row">
+    <div class="cell"></div>
+    <div class="cell">英语</div>
+    <div class="cell">数学</div>
+    <div class="cell">语文</div>
+</div>
+<div class="row">
+    <div class="cell">某某</div>
+    <div class="cell">99</div>
+    <div class="cell">98</div>
+    <div class="cell">97</div>
+</div>
+<div class="row">
+    <div class="cell">某某</div>
+    <div class="cell">60</div>
+    <div class="cell">62</div>
+    <div class="cell">62</div>
+</div>
+</div>
+</body>
+</html>

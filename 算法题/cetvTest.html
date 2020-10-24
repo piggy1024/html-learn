@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    let lamba = "1+2" 
+    function isTrue(lamba){
+        left = lamba.split("=")
+        console.log(left)
+        if(left.length <= 1){
+            result = eval(left[0])
+            return result
+        }else{
+            return eval(left[0]) == eval(left[1])
+        }
+    }
+    isTrue(lamba)
+    console.log(isTrue(lamba))
+</script>
+</html>

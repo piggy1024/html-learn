@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reduce巧妙使用</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    const obj = {
+        name: 'piggy',
+        age : 15,
+        person: {
+            sex: 'girl',
+            hobby: {
+                first: 'swim'
+            }
+        }
+    }
+    function useReduce(obj){
+        
+        x = "person.hobby.first".split('.').reduce((data, currentVal) => {
+            // console.log(currentVal)
+            return data[currentVal]
+        }, obj)
+        console.log(x)
+    }
+    useReduce(obj)
+</script>
+</html>

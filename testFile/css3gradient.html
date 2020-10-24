@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3颜色渐变</title>
+</head>
+
+<body>
+    <style type="text/css">
+    .example{
+        width: 150px;
+        height: 80px;
+    }
+    .example1{
+        /* 1 mozilla */
+        /* background: -moz-linear-gradient(top, #ccc, #000) */
+        /* 2 webkit */
+        /* 旧写法 */
+        /* background: -webkit-gradient(linear, center top,center bottom, from(#ccc), to(#111)); */
+        /* 新写法 */
+        /* background: -webkit-linear-gradient(top, #ccc, #111) */
+        /* 3 opera */
+        /* background: -o-linear-gradient(top, #ccc, #111) */
+        /* 4 IE */
+
+
+        /* 兼容应用 */
+        background:-moz-linear-gradient(left,#ace,#f96);/*Mozilla*/
+        background:-webkit-gradient(linear,0 50%,100% 50%,from(#ace),to(#f96));/*Old gradient for webkit*/
+        background:-webkit-linear-gradient(left,#ace,#f96);/*new gradient for Webkit*/
+        background:-o-linear-gradient(left,#ace,#f96); /*Opera11*/
+    }
+</style>
+    <div class="example example1"></div>
+</body>
+</html>

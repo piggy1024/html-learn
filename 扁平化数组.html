@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扁平化数组</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    let arr = [1, [2,4]]
+    function fattern(arr){
+        return arr.reduce(function(pre, item){
+            return pre.concat(Array.isArray(item) ? fattern(item): item )
+        }, [])
+    }
+    
+    console.log(fattern(arr))
+</script>
+</html>

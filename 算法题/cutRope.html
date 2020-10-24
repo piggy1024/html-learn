@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>剪绳子</title>
+</head>
+<body>
+    <div id='result'>result</div>
+    
+</body>
+<script type="text/javascript">
+    let result = 0
+    function cutRope(number)
+{
+    // write code here
+    if(number ===2) return 1
+    if(number ===3) return 2
+    let x = number % 3
+    let y = parseInt(number/3)  
+    if(x===0){
+        return Math.pow(3,y)
+    }else if(x ===1){
+        return 2*2*Math.pow(3,y-1)
+    }else{
+        return 2*Math.pow(3,y)
+    }
+}
+result = cutRope(8)
+document.getElementById('result').innerHTML = result
+</script>
+</html>

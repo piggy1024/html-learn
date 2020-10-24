@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则创建的方式</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    var name = "zhufeng"
+
+    // 在字面量方式中, 我们//之间包起来的所有的内容都是元字符, 有的具有特殊的意义, 大部分都是代表本身含义的普通的元字符
+    var reg = /^\d+"+name+"\d+$/
+    console.log(reg.test("2015zhufeng2016")) // ->false
+    console.log(reg.test('2015"""nameeee"2016'))// ->false
+
+
+    // 对于要拼接变量的   要用实例创建的方式
+    var reg = new RegExp("^\\d+" + name + "\\d+$", "g");
+    console.log(reg.test("2015zhufeng2016"))
+</script>
+</html>

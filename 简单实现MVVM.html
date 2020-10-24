@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单实现MVVM</title>
+</head>
+<body>
+    <input id="input" />
+    <div id="inputValue"></div>
+
+    <input id="test" />
+    <div id='result'></div>
+   
+</body>
+<script type="text/javascript">
+    const data = {};
+    const input = document.getElementById('input');
+   
+    input.oninput = function(e){
+        data.text = e.target.value
+        console.log(data)
+        document.getElementById('inputValue').innerHTML = data.value
+
+    }
+    Object.defineProperty(data, 'text', {
+        set(value){
+            // input.value = value
+            this.value = value
+        }
+    });
+
+    const testdata = {}
+    const testInput  = document.getElementById('test')
+    testInput.oninput = function(e){
+        testdata.text = e.target.value  // 触发Object.defineProperty(修改的对象,修改对象的属性, 对于该对象的操作)
+        document.getElementById('result').innerHTML = testdata.value
+    }
+
+    Object.defineProperty(testdata, 'text', {
+        set(value){
+            this.value = value
+        }
+    })
+
+</script>
+</html>

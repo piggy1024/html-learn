@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设计模式学习</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    // 1 单例模式
+    // 方式1: 使用ES6 class
+    
+    class Person{
+      constructor(){}
+    }
+   
+    (function(){
+      let instance = null;
+      return class{
+          constructor(){
+            if(!instance){
+             //第一次创建实例，那么需要把实例保存
+              instance = this;
+            }else{
+              return instance;
+          }
+      }
+      }
+    })()
+
+
+    let p3= new Person();
+    let p4 = new Person();
+    console.log(p3===p4)  //true
+
+
+    // 方式2: 使用function
+    var single = function (name){
+        this.name = name
+        this.instance = null 
+    }
+    single.prototype.getName = function(){
+        return this.name
+    }
+    single.getInstance = function(name) {
+        if(!this.instance){
+            this.instance = new single(name)
+        }
+        return this.name
+    }
+
+    var a = single.getInstance()
+    var b = single.getInstance()
+    console.log(a === b)
+
+
+
+
+    // 2 观察者模式
+    var salesOffices =  {}  // 定义售楼处
+    salesOffices.cacheList = []    // 定义存储缓存订阅列表
+    salesOffices.listen =  function(fn){  // 增加订阅者
+        this.cacheList.push(fn)   // 将订阅消息放进 缓存列表
+    }
+
+    salesOffices.publish = function(){   // 发布消息
+        for(var i = 0, fn; fn = this.cacheList[i++];){
+            fn.apply(this, arguments)
+        }
+    }
+
+    salesOffices.listen( function(prices, squareMeter){
+        console.log("prices = " + prices)
+        console.log("squareMeter = " + squareMeter)
+    })
+
+    salesOffices.publish(20000 , 1000)
+    salesOffices.publish(210000 , 1000)
+
+
+    // 3 简单工厂模式
+
+    // 方式1: 使用class
+    //学生类
+    // class Student{
+    //   constructor(name,age){
+    //     this.name = name;
+    //     this.age = age;
+    //   }
+    //   showName(){
+    //     console.log(this.name)
+    //   }
+    // }
+
+    // //老师类
+    // class Teacher{
+    //   constructor(name,age){
+    //     this.name = name;
+    //     this.age = age;
+    //   }
+    //   showName(){
+    //     console.log(this.name)
+    //   }
+    // }
+
+    // //警察类
+    // class Policeman{
+    //   constructor(name,age){
+    //     this.name = name;
+    //     this.age = age;
+    //   }
+    //   showName(){
+    //     console.log(this.name)
+    //   }
+    // }
+
+    // //工厂类
+    // class Factory{
+    //   let obj = null;
+    //   //工厂函数
+    //   constructor(role,name,age){
+    //     switch(role){
+    //       case 'student':
+    //          obj = new Student(name,age);
+    //          break;
+    //      case 'teacher':
+    //          obj = new Teacher(name,age);
+    //          break;
+    //      case 'policeman':
+    //          obj = new Policeman(name,age);
+    //          break;
+    //     }
+    //   }
+    //  return obj;
+    // }
+
+    // const s2 = new Factory('student','王小二',25);
+    // const t2 = new Factory('teacher','李二老师',39);
+    // const p2 = new Factory('policeman','张二警官',40);
+
+
+    // 方式2:function
+    let userFactory = function ( role ){
+
+        function superAdmin(){
+            this.name = '超级管理员'
+            this.viewPage = ['首页', '通讯录', '发现页', '应用数据', '权限管理']
+        }
+
+        function admin(){
+            this.name = '管理员'
+            this.viewPage = ['首页', '通讯录', '发现页', '应用数据']
+        }
+
+        function normalUser(){
+            this.name = '普通用户'
+            this.viewPage = ['首页', '通讯录', '发现页']
+        }
+        switch (role){
+            case 'superAdmin':
+                return new superAdmin();
+                break;
+            case 'admin':
+                return new admin();
+                break;
+            case 'normalUser':
+                return new normalUser()
+                break;
+            default:
+                throw new Error('参数错误, 可选参数为:superAdmin, admin, normalUser')
+        }
+    }
+    var user1 = new userFactory('superAdmin')
+    console.log("身份为:"+user1.name + "      可使用路由:" +user1.viewPage)
+
+</script>
+</html>

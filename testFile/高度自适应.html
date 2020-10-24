@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高度自适应</title>
+</head>
+<body>
+    <div class="d">
+   <div class="div1"></div> 
+   <div class="div2"></div> 
+   </div>
+</body>
+<style type="text/css">
+    .d{
+         width: auto; 
+         height: 400px;//演示方便，所以设置了一个高度 
+         border: 5px solid #000; 
+         position: relative;
+    }
+    .div1{
+        height: 100px; 
+        background: red;
+    }
+    .div2{
+        position: absolute; 
+        top: 100px; 
+        right: 0px; 
+        left: 0px; 
+        bottom: 0px; 
+        background: green;
+    }
+</style>
+</html>

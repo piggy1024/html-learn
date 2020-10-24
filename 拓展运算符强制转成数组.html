@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扩展运算符应用</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</body>
+<script>
+    /*利用扩展运算符将伪数组转成真数组*/
+    var oDivs= document.getElementsByTagName('div');
+    console.log(oDivs)
+    console.log( oDivs instanceof Array)  //判断是不是真数组
+ 
+    let arr =[...oDivs];
+    [...oDivs].forEach(x=>{
+        console.log(x)
+    })
+    console.log(arr)
+    console.log(arr instanceof Array)
+ 
+</script>
+</html>

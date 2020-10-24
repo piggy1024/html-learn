@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现format函数</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    var x = 'hello ${message}!';
+    var y = {message: 'wps'};
+    function format(x ,y){
+        x = x.replace(/\$\{(.+?)\}/g, y.message)
+        return x
+    }
+    // console.log(format(x,y))
+
+
+
+    var a = `hello, {{ Expre ClassName }}!
+            hello, {{ expreClass name }}!
+            hello, {{  }}
+    `
+    var result = [...a.match(/\{\{(.+?)\}\}/g)]
+    // console.log(result)
+    var x1 = result[0].match(/\{\{(.+?)\}\}/)[1].trim().split(' ')
+    console.log(x1)
+
+    // 第一个小写
+    var arr = x1[0].split(' ');
+    for(var i = 0;i<arr.length;i++){
+        //将首字母大写 拼接后面没有首字母的部分
+        arr[i]=arr[i].charAt(0).toLowerCase()+arr[i].slice(1);
+    }
+    console.log(arr.join(' '))
+
+    var arr1 = x1[1].split(' ');
+    for(var i = 0;i<arr1.length;i++){
+        //将首字母大写 拼接后面没有首字母的部分
+        arr1[i]=arr1[i].charAt(0).toUpperCase()+arr1[i].slice(1);
+    }
+    console.log(arr1.join(' '))
+    console.log(arr.join(' ')+arr1.join(' '))
+
+
+    
+    var x2 = result[1].match(/\{\{(.+?)\}\}/)[1]
+    var x3 = result[2].match(/\{\{(.+?)\}\}/)[1]
+    // console.log(result[0].match(/\{\{(.+?)\}\}/)[1])
+    // console.log(result[1].match(/\{\{(.+?)\}\}/)[1])
+    // console.log(result[2].match(/\{\{(.+?)\}\}/)[1])
+    console.log(a.replace(/\{\{(.+?)\}\}/g, arr.join(' ')+arr1.join(' ')))
+</script>
+</html>

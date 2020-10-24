@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手写bind</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    Function.prototype.myCall = function(content, ...args) {
+        if(typeof content === 'object' || typeof content === 'function') {
+            content = content || window
+        } else {
+            content = Object.create(null)
+        }
+        let fn;
+        content[fn] = this
+        const res = content[fn](...args)
+
+        delete content[fn]
+
+        return res
+    }
+
+    Function.prototype.myBind = function(content, ...innerParm){
+        var me = this
+        return function(...finalParm) {
+            return me.myCall(content, ...innerParm, ...finalParm)
+        }
+    }
+
+    let person = {
+        name: 'John'
+    }
+    function sayHello(age, sex) {
+        console.log(this.name + age+ ',性别:' + sex)
+    }
+    let personSayhello = sayHello.myBind(person, 18)
+    personSayhello('男')
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display:inline-blocl间隙问题</title>
+</head>
+<style type="text/css">
+        *{margin:0; padding:0;}
+        .test{width:600px; border:1px blue solid; 
+            /* 解决空隙问题 */
+            /* font-size: 0   */  
+        }
+        .test div{width:100px; height:100px; display:inline-block;background:blue;} 
+    </style>
+</head>
+<body>
+<div class="test">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</body>
+</html>

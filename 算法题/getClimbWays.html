@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>爬楼梯</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    let n = 5;
+    function getClimbWays(n) {
+        if(n == 0 ) return 0;
+        if(n == 1 ) return 1;
+        if(n == 2 ) return 2;
+        return getClimbWays(n-1) + getClimbWays(n-2)
+    }
+    console.log(n + "层楼梯有 + " + getClimbWays(n) + "种走法")
+
+    function paddingNum(x) {
+    var x = Number(x).toString().split('.')
+    // console.log(Number(x[1].split('').reverse().join('')).toLocaleString())
+    return Number(x[0]).toLocaleString() + '.'+ Number(x[1].split('').reverse().join('')).toLocaleString().split('').reverse().join('')
+}
+// console.log(paddingNum(1233.4333))
+    // console.log(Number(1234).toLocaleString())
+
+
+    function mySort(...args) {
+    var tags = new Array();//使用数组作为参数存储容器
+    console.log(args)
+    var tmp;
+    tags = args;
+    for(let i = 0; i < tags.length; i++){
+        for(let j = i+1; j < tags,length; j++){
+            if(tags[i] <= tags[j]){
+                // [tags[i],tags[j]] = [tags[j], tags[i]]
+                tmp = tags[i]
+                tags[i] = tags[j]
+                tags[j] = tmp
+            }
+        }
+    }
+    return tags;//返回已经排序的数组
+}
+ 
+var result = mySort(50,11,16,32,24,99,57,100);
+console.log(result);
+console.log( typeof 'result');
+
+
+function paddingNum1(number){
+    var numString = number.toString().split('.')
+    let left = numString[0] 
+    let right = numString[1]
+    return Number(left).toLocaleString() + '.' +
+        Number(right.toString().split('').reverse().join('')).toLocaleString().split('').reverse().join('')
+}
+console.log(paddingNum1(1234.6666))
+</script>
+</html>

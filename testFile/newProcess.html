@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new的实际过程</title>
+</head>
+<body>
+    
+</script>
+</body>
+<script type="text/javascript">
+    var new2 = function(func) {
+        //  第一步:创建一个空对象   第二步:将对象的原型指向构造函数的prototype
+        var obj = Object.create(func.prototype);
+        //  第三步: 绑定this
+        var funcObj = func.call(obj);
+        //  第四步: 返回对象
+        if(funcObj && funcObj instanceof Object){
+            // 判断 funcObj 是不是对象
+            return funcObj;
+        } else {
+            return obj;
+        }
+    }
+</html>

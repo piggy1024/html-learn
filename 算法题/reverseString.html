@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>翻转字符串</title>
+</head>
+<body>
+    <div id="result"></div>
+</body>
+<script type="text/javascript">
+    let result = 0
+    function ReverseSentence(str)
+    {
+        // write code here
+        let strArray = str.split(" ")
+        console.log()
+        return strArray.reverse().join(" ")
+    }
+    result = ReverseSentence('you! love I')
+    console.log(result)
+    document.getElementById('result').innerHTML = result
+
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js执行顺序</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+        var foo=function(x,y){
+        return x-y;
+        }
+        function foo(x,y){
+        return x+y;
+        }
+        var num=foo(1,2);
+
+
+        var setTimeout2 = setTimeout(()=>{
+            console.log(2)
+        }, 2000)
+        console.log("setTimeout2的返回值:"+setTimeout2)
+
+        var setTimeout1 = setTimeout(()=>{
+            console.log(2)
+        }, 2000)
+        console.log("setTimeout1的返回值:"+setTimeout1)
+        let x =  setTimeout(()=>{
+            console.log(2)
+        }, 2000)
+        console.log("x的返回值:"+x)
+        // clearTimeout(x)
+        let y =  setTimeout(()=>{
+            console.log(2)
+        }, 2000)
+        console.log("y的返回值:"+y)
+
+
+
+
+        // js函数和变量的声明的问题
+        var a = 1;
+        function f() {
+            console.log(a)
+            a = 2;
+            console.log(a)
+
+        }
+        f()
+        console.log(a)  // 全局变量a也会被修改  
+
+        var a,b; // b=3
+        (function (){
+            console.log(a)
+            console.log(b)
+            var a=b=3;
+            console.log(a)
+            console.log(b)
+        })();
+        console.log(a)
+        console.log(b)
+
+
+
+
+
+</script>
+
+</html>

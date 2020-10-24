@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的第一个实战项目页面</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body{
+			background: #f6f6f6;
+		}
+    li {
+      list-style: none;
+    }
+    .head {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      line-height: 50px;
+      padding-left: 5%;
+      background:#fff;
+    }
+    .head img {
+      vertical-align: middle;
+    }
+    .logo {
+      width: 80px;
+      height: 30px;
+      margin-right: 45%;
+    }
+    .search {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+    .vip {
+      width: 25px;
+      height: 25px;
+    }
+    .lunbo {
+      margin-top: 50px;
+    }
+    .lunbo img {
+      width: 100%;
+    }
+    .sortwrap {
+      margin-top: 10px;
+      padding-bottom: 5px;
+    }
+    .sort {
+      overflow: hidden;
+      background: #fff;
+      padding: 5px 0;
+    }
+    .sort li {
+      float: left;
+      width: 25%;
+      text-align: center;
+    }
+    .list{
+      color: #7e8c8d;
+    }
+    .sort .icon{
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        /* line-height与height相同  字处于盒子中间 */
+        line-height: 80px;
+        background-color: aqua;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+    .hot{
+      height: 50px;
+      line-height: 50px;
+    }
+    .hot img{
+      height:25px;
+      width: 25px;
+      vertical-align: text-bottom;
+    }
+    .class_module{
+      padding: 0 20px;
+      width: 100%;
+      background: #fff;
+      box-sizing: border-box;
+    }
+    .class_module{
+      overflow: hidden;
+      margin-top: 10px;
+      padding: 0 80px;
+    }
+
+    .book{
+      float: left;
+      width: 45%;
+      margin: 0px 20px 10px 0;
+      
+    }
+    .book img{
+      width: 100%;
+      height: 130px;
+      border-radius: 10px;
+      
+    }
+    .levelprice{
+      overflow: hidden;
+      line-height: 20px;
+    }
+    .level{
+      float: left;
+      font-size: 13px;
+      text-align: center;
+      color: #333;
+    }
+    .price{
+      float: right;
+      color: red;
+    }
+    .foot{
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      
+    }
+    .foot img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      
+    }
+    .gn{
+      overflow: hidden;
+      float: left;
+      width: 25%;
+      text-align: center;
+    }
+    .gn p{
+      color: #7e8c8d;
+    }
+    .blank{
+      height: 95px;
+    }
+  </style>
+
+  <body>
+    <div class="page">
+      <!-- 页面头部 -->
+      <div class="head">
+        <img class="logo" src="./img/logo.png" alt="logo" />
+        <img class="search" src="./img/search.png" />
+        <img class="vip" src="./img/userimg.png" />
+      </div>
+      <!-- 轮播图板块 -->
+      <div class="lunbo">
+        <img src="./img/banner.jpeg" alt="banner" />
+      </div>
+      <!-- 分类板块 -->
+      <div class="sortwrap">
+        <ul class="sort">
+          <li>
+            <div class="icon">后</div>
+            <p class="list">后</p>
+          </li>
+          <li>
+            <div class="icon">端</div>
+            <p class="list">端</p>
+          </li>
+          <li>
+            <div class="icon">测</div>
+            <p class="list">测</p>
+          </li>
+          <li>
+            <div class="icon">试</div>
+            <p class="list">试</>
+          </li>
+        </ul>
+      </div>
+      <!-- 课程分类板块 -->
+      <div class="class_module">
+          <div class="hot">
+              <img src="./img/hot.png" alt="热门推荐">热门视频
+          </div>
+          <div class="class_content">
+              <div class="book">
+                <img src="./img/1.png" alt="">
+                <p class="title">Spring Boot 2.x零基础入门到高级</p>
+                <div class="levelprice">
+                <p class="level">级别: 中级</p>       
+                <p class="price">价钱:29.8</p>
+                </div>
+              </div>
+              <div class="book">
+                <img src="./img/2.png" alt="">
+                <p class="title">Spring Boot 2.x零基础入门到高级</p>
+                <div class="levelprice">
+                  <p class="level">级别: 中级</p>
+                  <p class="price">价钱:29.8</p>
+                </div>
+              </div>
+              <div class="book">
+                <img src="./img/2.png" alt="">
+                <p class="title">Spring Boot 2.x零基础入门到高级</p>
+                <div class="levelprice">
+                  <p class="level">级别: 中级</p>
+                  <p class="price">价钱:29.8</p>
+                </div>
+              </div>
+              <div class="book">
+                <img src="./img/1.png" alt="">
+                <p class="title">Spring Boot 2.x零基础入门到高级</p>
+                <div class="levelprice">
+                  <p class="level">级别: 中级</p>
+                  <p class="price">价钱:29.8</p>
+                </div>
+              </div>
+          </div>
+      </div>
+      <!-- 底部导航栏 -->
+      <div class="foot">
+        <div class="gn">
+          <img src="./img/1.png" alt="">
+          <p>首页</p>
+        </div>
+        <div class="gn">
+          <img src="./img/2.png" alt="">
+          <p>课程</p>
+        </div>
+        <div class="gn">
+          <img src="./img/1.png" alt="">
+          <p>购物车</p>
+        </div>
+        <div class="gn">
+          <img src="./img/2.png" alt="">
+          <p>我的</p>
+        </div>
+      </div>
+      <div class="blank"></div>
+    </div>
+  </body>
+</html>

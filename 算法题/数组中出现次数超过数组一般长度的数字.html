@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>result</div>
+</body>
+<script type="text/javascript">
+    function MoreThanHalfNum_Solution(numbers)
+{
+    // 数组没有元素 返回0
+    //if(numbers.length == 0 ) return 0;
+    // cond为遍历时当前的众数
+    let cond = -1;
+    // 储存当前众数抵消后剩余个数
+    let count = 0;
+    // 遍历数组
+    for(let i = 0; i<numbers.length; i++){
+        // count =0 说明当前无候选众数
+        if(count == 0) {
+            // 则当前数作为众数
+            cond = numbers[i];
+            // 当前众数个数加1
+            count++;
+        } else {// 如果count > 0
+            // 将遍历的数与当前众数对比
+            if(cond == numbers[i]) count++; // 相同则count+1
+            else count--;// 否则个数减1
+        }
+    }
+    // 检查当前众数在数组出现的次数是否大于一半的个数
+    console.log(cond)
+    count = 0;
+    for(let i =0; i < numbers.length; i++) {
+        if(numbers[i] == cond) count++;
+    }
+    console.log(count)
+    if(count > numbers.length/2) return cond; 
+    return 0;
+}
+var arr = [ 1,2,3,2,2,2,5,4,2]
+var result = MoreThanHalfNum_Solution(arr)
+console.log(result)
+</script>
+</html>

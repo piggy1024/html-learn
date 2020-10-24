@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>美团</title>
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #f9f7f8;
+		}
+		header{
+			margin: 5px 0;
+		}
+		ul{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;   /*去掉连接的下划线*/
+		}
+		/*顶部导航栏*/
+		.navbar{
+			background: white;
+			height: 40px;
+			color: black;
+			display: flex;
+		}
+		.navbar .navbar-left{
+			height: 40px;
+			line-height: 40px;
+		}
+		.navbar .nav-city{
+			font-size: 14px;
+			margin: 0 15px;
+		}
+		.icon-downarrow{
+			display: inline-block;
+			width: 6px;
+			height: 6px;
+			border-left: 2px solid black;
+			border-bottom: 2px solid black;
+			transform: rotate(-45deg);
+			margin: 0 0 4px 6px;
+		}
+		.nav-search{
+			flex:1;
+			background: #f3f3f3;
+			height: 30px;
+			line-height: 30px;
+			border-radius: 15px;
+			padding: 0 20px;
+			margin: 5px 15px 0 0;
+		}
+		.nav-search input{
+			width: 100%;
+			height: 100%;
+			display: block;
+			background: transparent;
+			border: none;
+			outline: none;
+			font-size: 14px;
+		}
+
+		/*广告图*/
+		.banner{
+			padding: 5px 15px;
+			background: white;
+		}
+		.banner img{
+			width: 100%;
+			box-shadow: 0 3px 2px rgba(0,0,0,0.2); /* 阴影：水平方向0px，垂直3px；柔焦2px，（0，0，0）是黑色*/
+
+		}
+
+		/*导航菜单*/
+		.nav-list{
+			background: white;
+			padding-top: 10px;
+			margin-bottom: 10px;
+		}
+		.nav-list ul{
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.nav-list .nav-item{
+			flex: 0 0 20%;     /*flex-grow: 0;flex-shrink: 0;flex-basis: 20%;*/
+			text-align: center;
+			padding: 10px 0;
+		}
+		.nav-icon{
+			display: block;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			border-radius: 50%;
+			margin: 0 auto 7px;    /* 使圆居中,下边距7px*/
+			color: white;
+			font-size: 25px;
+
+		}
+		.nav-des{
+			color: #333;
+		}
+
+		/*附近拼团*/
+		.boxWrapper{
+			background: white;
+			padding: 15px;
+		}
+		.boxWrapper h4{
+			color: black;
+			margin-bottom: 10px;
+			font-size: 18px;
+		}
+		.box-list{
+			display: flex;
+			justify-content: space-between;  /*两端对齐*/
+		}
+		.box-item{
+			width: 49%;
+			/*display: inline-block;*/
+			text-align: center;
+		}
+		.box-item img{
+			width: 100%;
+			border-radius: 6px;
+		}
+		.box-item .item-title{
+			font-size: 16px;
+			padding: 0 15px;
+			white-space: nowrap;  /*溢出部分默认为换行，要设置为不换行*/
+			overflow: hidden;  /*不加的话text-overflow没有显示效果*/
+			text-overflow: ellipsis; /*溢出显示省略号*/
+		}
+		.box-item .price .discount{
+			font-size: 18px;
+			color: red;
+		}
+		.box-item .price .no-discount{
+			font-size: 12px;
+			text-decoration: line-through;  /*文字中间划线*/
+			color: #666;
+		}
+
+		/*猜你喜欢*/
+		.guessLike{
+			background: white;
+			margin-top: 10px;
+		}
+		.guessLike .title{
+			text-align: center;
+			font-size: 18px;
+			padding: 10px 0;
+			border-bottom: 1px solid #ddd8ce;
+			color: #666;
+		}
+		.guessList{
+			padding: 0 10px;
+		}
+		.guessItem .item-box{
+			display: flex;
+			padding: 10px 0;
+		}
+		.item-box .item-img{
+			width: 90px;
+			height: 90px;
+		}
+		.item-img img{
+			width: 100%;
+			height: 100%;
+		}
+		.item-box .item-des{
+			flex: 1;
+			margin-left: 10px;
+		}
+		.item-des .item-name{
+			font-size: 18px;
+			color: black;
+			margin-bottom: 3px;
+		}
+		.item-des .item-addition{
+			font-size: 14px;
+			color: #666;
+			margin-bottom: 8px;
+		}
+		.item-des .sales{
+			font-size: 14px;
+			color: #666;
+		}
+		.item-des .sales .discount{
+			font-size: 22px;
+			color: red;
+		}
+		.item-des .sales .discount::before{
+			content: '￥';
+			font-size: 14px;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="navbar">
+			<div class="navbar-left">
+				<span class="nav-city">广州<i class="icon-downarrow"></i></span>
+			</div>
+			<div class="nav-search">
+				<input type="text" placeholder="请输入商家名、品类或者商圈" >
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="banner"><img src="img/download_banner.png" alt="广告图"></div>
+		
+		<nav class="nav-list">
+			<ul>
+				<li class="nav-item"> 
+					<a href="#" class="nav-href">
+						<span class="nav-icon iconfont meishi" style="background: #fd9d21;"></span>
+						<span class="nac-des">美食</span>
+					</a>	
+				</li>
+				<li class="nav-item"> 
+					<a href="#" class="nav-href">
+						<span class="nav-icon iconfont dianying" style="background: #ff6767;"></span>
+						<span class="nac-des">电影</span>
+					</a>	
+				</li>
+				<li class="nav-item"> 
+					<a href="#" class="nav-href">
+						<span class="nav-icon iconfont jiudian" style="background: #8a90fa;"></span>
+						<span class="nac-des">酒店</span>
+					</a>	
+				</li>
+				<li class="nav-item"> 
+					<a href="#" class="nav-href">
+						<span class="nav-icon iconfont xiuxianyule" style="background: #fed030;"></span>
+						<span class="nac-des">休闲娱乐</span>
+					</a>	
+				</li>
+				<li class="nav-item"> 
+					<a href="#" class="nav-href">
+						<span class="nav-icon iconfont waimai" style="background: #fd9d21;"></span>
+						<span class="nac-des">外卖</span>
+					</a>	
+				</li>
+				<li class="nav-item"> 
+					<a href="#" class="nav-href">
+						<span class="nav-icon iconfont ktv" style="background: #fed030;"></span>
+						<span class="nac-des">KTV</span>
+					</a>	
+				</li>
+				<li class="nav-item"> 
+					<a href="#" class="nav-href">
+						<span class="nav-icon iconfont zhoubianyou" style="background: #4dc6ee;"></span>
+						<span class="nac-des">周边游</span>
+					</a>	
+				</li>
+				<li class="nav-item"> 
+					<a href="#" class="nav-href">
+						<span class="nav-icon iconfont liren" style="background: #ff80c2;"></span>
+						<span class="nac-des">丽人</span>
+					</a>	
+				</li>
+				<li class="nav-item"> 
+					<a href="#" class="nav-href">
+						<span class="nav-icon iconfont xiaochikuaican" style="background: #fd9d21;"></span>
+						<span class="nac-des">小吃快餐</span>
+					</a>	
+				</li>
+				<li class="nav-item"> 
+					<a href="#" class="nav-href">
+						<span class="nav-icon iconfont quanbu" style="background: #00d3be;"></span>
+						<span class="nac-des">全部分类</span>
+					</a>	
+				</li>
+			</ul>
+		</nav>
+
+		<div class="pingtuan boxWrapper">
+			<h4 class="title">附近拼团</h4>
+			<div class="box-list">
+				<div class="box-item">
+					<img src="img/food.jpg" alt="美食拼团">
+					<div class="item-title">牛小灶牛腩牛杂煲</div>
+					<div class="price">
+						<span class="discount">￥129</span>
+						<span class="no-discount">￥158</span>
+					</div>
+				</div>
+				<div class="box-item">
+					<img src="img/ktv.jpg" alt="娱乐拼团">
+					<div class="item-title">KTV欢唱4小时免费自助餐</div>
+					<div class="price">
+						<span class="discount">￥75</span>
+						<span class="no-discount">￥83</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="guessLike">
+			<div class="title">- 猜你喜欢 -</div>
+			<ul class="guessList">
+				<li class="guessItem">
+					<a href="#" class="item-href"></a>
+					<div class="item-box">
+						<div class="item-img">
+							<img src="img/food.jpg" alt="预览图">
+						</div>
+						<div class="item-des">
+							<div class="item-name">牛小灶牛腩牛杂煲</div>
+							<div class="item-addition">[5人通用]2人套餐，提供免费wifi</div>
+							<div class="sales">
+								<span class="discount">129</span>
+								<span class="no-discount">门市价:￥158</span>
+								<span class="saleNum">已售：4000</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</main>
+	<footer></footer>
+
+</body>
+</html>

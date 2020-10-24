@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>棒骨测试复盘</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    // 1
+    const name = "tom";
+    function getMethod() {
+        const result = function () {
+            return name;
+        }
+        const name = 'jerry';
+        return result;
+    }
+    const getName = getMethod()
+    console.log(getName())
+    // jerry
+
+    // 2  总结: 数组push一个 1,2,3 只会将最后一个元素放进数组
+    const a = [].push(...[1,2,3])
+    console.log(a)
+
+    // 4
+    setTimeout(()=>{
+        console.log(1);
+
+        // 这个直接进微任务然后执行了!!!!!!!!
+        new Promise(()=>{
+            console.log(2);
+        })
+    },0)
+    new Promise(()=>{
+        console.log(3)
+        setTimeout(()=>{
+            console.log(4)
+        },0)
+    })
+    //  结果为3124
+
+    // 5
+    function Person() {}
+    const person1 = new Person()
+    const person2 = new Person()
+    Person.prototype.getName = function () {return this.name}
+    Person.prototype.name = 'tom'
+    person1.name = 'jerry'
+    console.log(person2.getName())
+    // tom
+
+    // 6
+    console.log(([]) ? true : false)
+    console.log([] == false)
+    console.log({} == false)
+    // T T F
+
+    // 7
+    console.log('7 ---------')
+    function foo() {
+        let i = 0;
+        return function () {
+            console.log(i++)
+        }
+    }
+    const f1 = foo()
+    const f2 = foo()
+    f1()
+    f1()
+    f2()
+    console.log('7 ---------')
+
+    //  8
+    console.log('100'+50-'50')
+    // 10000
+
+    //  10
+    const set = new Set([0,2,2,0,0,5,9,{},{},NaN, NaN])
+    console.log(set)  
+    // {0,2,5,9,{},{},NaN}
+
+    // 11 
+    function setname (name){
+        this.name = name;
+    }
+    setname.prototype.printName = function () {console.log(this.name)}
+    let x = new setname('cc')
+    x.name = 'dd'
+    x.__proto__.name = 'ee'
+    x.__proto__.printName()  // 所求
+    // ee
+    x.printName()  // 所求 
+    // dd
+
+    // 13
+    let y = { c: 1}
+    let z = y
+    y = 1;
+    z.c = 2
+    console.log(y.c)
+    console.log(y) // 1
+    // undefined
+
+    // 14 
+    localStorage.setItem('flag', true)
+    const flag = localStorage.getItem('flag')
+    console.log(typeof(flag))
+    // string
+
+
+    // 15
+    console.log('15-------------------')
+    var arr = [1]
+
+    console.log([].concat(arr))
+    console.log([...arr])
+    // console.log(arr.clone())
+    console.log(arr.map(o=>o))
+    console.log(arr.slice(0))
+    console.log('15-------------------')
+
+    // 16
+    // 所有元素可继承：visibility和cursor。
+    // 内联元素可继承：letter-spacing、word-spacing、white-space、line-height、color、font、font-family、font-size、font-style、font-variant、font-weight、text-decoration、text-transform、direction。
+    // 终端块状元素可继承：text-indent和text-align。
+    // 列表元素可继承：list-style、list-style-type、list-style-position、list-style-image。
+
+    //  17
+    //  JSONP是XMLHttpRequest中的一种  F
+    //  当前域的cookie都可以通过js在当前域下获取  F
+    //  同源策略是浏览器的安全策略  T
+    //  localStorage API 不支持设置过期时间   F
+
+    //  18  NaN 与任何值相比得到的结果均是false
+    console.log(null == undefined)  // T
+    console.log(null === undefined) // F
+    console.log(null === null)      // T
+    console.log(NaN == null)        // F !!!!!!
+    console.log(NaN === NaN)        // F
+    console.log(Infinity +1 !== Infinity) // F
+
+    // 19
+    // 块级元素    div,h1-h6,p,pre,ul,ol,li,form,table,label等
+    // 行内元素    a,img,span，i（斜体）,em（强调）,sub(下标)，sup（上标）等。
+    // 行内块级元素 (button,input，textarea,select), img等
+
+    const {a1, b1=2} = {a1:1, b1:null}
+    console.log(b1)
+
+
+</script>
+</html>

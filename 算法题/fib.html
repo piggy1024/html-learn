@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>斐波那契数列</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    function fib(x) {
+    if(x==0) return 1
+    if(x==1) return 1
+    return fib(x-1) + fib(x-2)
+    }
+    // 递归优化加闭包
+    var fabonacci = function(){
+        let data = [0,1];
+
+        let fib1 = function(n) {
+            if(data[n] == undefined){
+                data[n] = fib1(n-1) + fib1(n-2)
+            }
+            return data[n]
+        }
+        return fib1
+    }()
+
+    // console.log(fabonacci(7))
+
+
+    function FirstNotRepeatingChar(str)
+{
+    // write code here
+    let strArr = str.split('')
+    console.log(strArr)
+    let allCount = []
+    let all = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
+               'P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k',
+              'l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
+              ]
+    for(let i = 0 ; i < all.length; i++){
+        allCount[i]=0;
+        for(let j =0; j <strArr.length; j++){
+            if(all[i]===strArr[j]) allCount[i]++;
+            if(allCount[i] > 1) break;
+        }
+    }
+    console.log(allCount)
+    for(let i = 0; i < strArr.length; i++){
+        if(allCount[all.indexOf(strArr[i])]==1) {  return strArr.indexOf(strArr[i]); }
+    }
+    // if(allCount.indexOf(1) == -1) return -1;
+    // console.log(allCount)
+    // return strArr.indexOf(all[allCount.indexOf(1)])
+}
+console.log(FirstNotRepeatingChar('aabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZA'))
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>generator原理</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    function* test(){
+        let a = 1 + 2; 
+        yield 2;
+        yield 3;
+    }
+    var b = test()
+    console.log(b.next())
+    console.log(b.next())
+    console.log(b.next())
+</script>
+</html>

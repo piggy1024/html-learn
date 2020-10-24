@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CVTE测试</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    var arr = [
+        {class: 1, grade: 1, name: '小明', no: 3},
+        {class: 1, grade: 1, name: '韩梅梅', no: 1},
+        {class: 2, grade: 1, name: '小明', no: 1},
+        {class: 1, grade: 2, name: '小一', no: 10},
+        {class: 2, grade: 2, name: '小二', no: 9},
+        {class: 2, grade: 2, name: '小三', no: 1},
+        {class: 2, grade: 3, name: '小三', no: 10},
+        {class: 2, grade: 3, name: '小四', no: 1},
+    ]
+
+    var result = {}
+    
+    for(var item in arr){
+        var now_grade = arr[item].grade
+        if(!result["grade_"+now_grade]){
+              result["grade_"+now_grade] = {}
+              result["grade_"+now_grade]["class_"+arr[item].class] = [
+                  {
+                    class: arr[item].class,
+                    grade: arr[item].grade,
+                    name: arr[item].name,
+                    no: arr[item].no
+                  }
+              ]
+        }else{
+              if(!result["grade_"+now_grade]["class_"+arr[item].class]){
+                    result["grade_"+now_grade]["class_"+arr[item].class] = [
+                      {
+                        class: arr[item].class,
+                        grade: arr[item].grade,
+                        name: arr[item].name,
+                        no: arr[item].no
+                      }
+                    ]
+              }else{
+                    result["grade_"+now_grade]["class_"+arr[item].class].push({
+                        class: arr[item].class,
+                        grade: arr[item].grade,
+                        name: arr[item].name,
+                        no: arr[item].no
+                    })
+                    result["grade_"+now_grade]["class_"+arr[item].class].sort(function (a, b) {
+                      return (a.no - b.no)
+                    })
+              }
+        }
+
+    }
+     console.log(result)
+</script>
+</html>

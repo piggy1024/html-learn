@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器setTimeout和setInterval</title>
+</head>
+<body>
+    <h3>setInterval</h3>
+    <input type="text" size="50" id="clock" />
+    <input type="button" value="Stop" id="btn" />
+    <h3>setTimeout</h3>
+    <input type="text" id="count" />
+</body>
+<script type="text/javascript">
+    function clock(){
+    var time = new Date();
+    document.getElementById("clock").value = time;   
+    var btn =document.getElementById("btn");
+    btn.onclick = function(){
+       clearInterval(t); 
+    }
+}
+var t = setInterval(clock,1000);
+
+var num = 0;
+function startCount(){
+    document.getElementById("count").value = num;
+    num += 1;
+    setTimeout(startCount,1000);    //setTimeout是超时调用，使用递归模拟间歇调用
+}    
+setTimeout(startCount,2000);    //2s后执行
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>笔记草稿问题</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    function note(str){
+        let arr = str.split('');
+        var res = [];
+        var flag = false;
+        arr.forEach((val) => {
+            if(val == '('){
+                flag = true;
+                return true;
+            }
+            if(flag){
+                if(val == ')'){
+                    flag = false
+                }
+                return true
+            }
+            if(val == '<'){
+                res.pop()
+            } else {
+                res.push(val)
+            }
+        })
+        return res.join('')
+    }
+        console.log(note('Corona(Trump)USA<<<Virus')); 
+</script>
+</html>

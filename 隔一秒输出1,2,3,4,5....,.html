@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隔1秒输出1,2,3,....数字</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+     function outputNumber(){
+        // for(let i = 0; i<1000; i++){
+        //     setTimeout(function() {
+        //         console.log(i)
+        //     }, 1000)
+        // }
+        for(var i = 0; i < 10; i++){
+            (function(j){
+                setTimeout(function(){
+                    console.log(j+1)
+                }, j*1000)
+            })(i)
+        }
+        
+    }
+    outputNumber()
+</script>
+</html>

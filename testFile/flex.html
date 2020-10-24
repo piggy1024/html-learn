@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .flexTest {
+        display: flex;
+        height: 500px;
+        width: 500px;
+        flex-direction: column;
+        background: #c3c3c3;
+
+    }
+
+    .box1 {
+        height: 250px;
+        width: 500px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background: rgb(226, 84, 84);
+        text-align: center;
+    }
+
+    .box2 {
+        height: 250px;
+        width: 500px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background: rgb(226, 84, 84);
+        text-align: center;
+
+    }
+
+    .box3 {
+        height: 250px;
+        width: 500px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background: rgb(250, 219, 219);
+        text-align: center;
+    }
+
+    .item {
+        width: 100px;
+        height: 100px;
+        background: #000;
+        margin: 10px;
+    }
+
+
+
+    .ft {
+        height: 200px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #c3c3c3;
+    }
+
+    .b1 {
+        height: 60px;
+        width: 60px;
+        background: rgb(238, 81, 81);
+    }
+
+    .ft1 {
+        height: 200px;
+        width: 200px;
+        background: #c3c3c3;
+
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+
+
+    }
+
+    .b2 {
+        width: 50px;
+        height: 50px;
+        /* margin: auto ; */
+        background: rgb(238, 81, 81);
+
+    }
+</style>
+
+<body>
+    <div class="flexTest">
+        <div class="box1">
+            <div class="item item1">1</div>
+            <div class="item item2">2</div>
+        </div>
+        <div class="box2">
+            <div class="item item3">1</div>
+            <div class="item item4">2</div>
+        </div>
+        <div class="box3">
+            <div class="item item5">5</div>
+            <div class="item item6">6</div>
+        </div>
+    </div>
+    <p>flex垂直居中</p>
+
+    <div class="ft">
+        <div class="b1"></div>
+    </div>
+    <p>css的box方法垂直居中</p>
+
+    <div class="ft1">
+        <div class="b2"></div>
+    </div>
+</body>
+
+</html>

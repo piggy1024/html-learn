@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片居中</title>
+</head>
+<body>
+    <div class="box">
+        <img src="https://ss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/242dd42a2834349b406751a3ceea15ce36d3beb6.jpg">
+    </div>
+    
+
+    <div class="wrap">
+          <div class="a">a</div>
+          <div class="b">b</div>
+          <div class="c">c</div>
+    </div>
+    <input type="range" />
+</body>
+<style type="text/css">
+    .box {
+        height: 200px;
+        width: 200px;
+        display: table-cell;
+        text-align: center;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+    }
+
+
+     .a, .b, .c {
+    box-sizing: border-box;
+    border: 1px solid;
+  }
+  .wrap {
+    width: 250px;
+    height: 100px;
+  }
+  .a {
+    width: 100px;
+    height: 100px;
+    float: left;
+  }
+  .b {
+    width: 100px;
+    height: 50px;
+    float: left;
+  }
+  .c {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+  }
+</style>
+</html>

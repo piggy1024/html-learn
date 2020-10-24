@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3幻灯片效果</title>
+</head>
+<body>
+    <div class="ani"></div>
+</body>
+<style type="text/css">
+    /* .ani {
+        width:480px;
+        height:320px;
+        margin:50px auto;
+        overflow: hidden;
+        box-shadow:0 0 5px rgba(0,0,0,1);
+        background-size: cover;
+        background-position: center;
+        -webkit-animation-name: "loops";
+        -webkit-animation-duration: 2ss;
+        -webkit-animation-iteration-count: infinite;    
+    }
+    @-webit-keyframes "loops" {
+        0% {
+        background:url('https://segmentfault.com/img/bVbc84l?w=451&h=429/view'
+        }
+        25% {
+        background:url('https://segmentfault.com/img/bVbc84y?w=700&h=315'
+        }
+        50% {
+        background:url('https://segmentfault.com/img/bVbc9oU?w=671&h=334'
+        }
+        75% {
+        background:url('https://img-blog.csdnimg.cn/20200111165929336.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NtY3NkMTMx,size_16,color_FFFFFF,t_70'
+        }
+        100% {
+        background:url('https://segmentfault.com/img/bVbc9oU?w=671&h=334'
+        }
+    } */
+    .ani{
+  width: 600px;
+  height: 400px;
+  margin: 20px auto;
+  background-size: over;
+  background-position: center;
+  animation-name:'loop';
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+@keyframes loop{
+ 
+    0% {background: url('https://segmentfault.com/img/bVbc84l?w=451&h=429/view') no-repeat;}
+    25% {background: url('https://segmentfault.com/img/bVbc84l?w=451&h=429/view') no-repeat;}
+    50% {background: url('https://segmentfault.com/img/bVbc84l?w=451&h=429/view') no-repeat;}
+    75% {background: url('https://segmentfault.com/img/bVbc84l?w=451&h=429/view') no-repeat;}
+    100% {background: url('https://segmentfault.com/img/bVbc84l?w=451&h=429/view') no-repeat;}
+}
+</style>
+</html>

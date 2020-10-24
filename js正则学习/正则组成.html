@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则组成</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    var reg = /\d/;
+
+    console.log(reg.test("zhufeng2015"))  // true
+    reg = /^\d$/;  // 只能是一个0-9之间的数字   ( 只匹配一个数字)
+    console.log(reg.test("9"))  // true
+    console.log(reg.test("012"))  // false
+
+
+    // 元字符:
+    // 每一个正则表达式都是由元字符和修饰符组成的
+
+     // [元字符] -> 在// 之间具有意义的一些字符
+
+
+     // 1 具有特殊意义的元字符
+     // \
+     // ^
+     // $
+     // \n
+     // .
+
+     //  () 分组的意思:把一个大正则划分成几个小的正则
+      var  reg = /^(\d+)zhufeng(\d+)$/
+      console.log('---')
+      console.log(reg.test("123z1zhufeng123"))
+      console.log(reg.exec("1234zhufeng123"))
+
+     //  []  
+     // 1   中括号里面的字符需要转义
+     // var reg = /^[.]$/
+     // console.log(reg.test("1")); // ->false
+     // console.log(reg.test(".")); // -> true
+     // 2   中括号里不识别两位数
+     //     var reg = /^[12]$/; //->1或者2中的一个
+     //     var reg = /^[12-68$/; // -> 1 或者2-6中的一个或者8
+
+     // 2 代表出现次数的量词元字符
+     // *       出现0-n次
+     // +       出现1或多次
+     // ?       出现0或1次
+     // {n}     出现n次
+     // {n,}    出现n+次
+     // {n,m}   出现n-m
+
+     var reg = /^\d+$/;
+     console.log(reg.test("2015")) // true 
+
+     // 一个简单验证手机号码的正则:11位数字,以1开头
+     var phoneNumber = /^1\d{10}$/
+     console.log(phoneNumber.test("1581909170")) // true 
+
+
+     // 有效数字的正则  正数 负数  零   小数
+     var regNumber = /^[+-]?(\d|[1-9]\d+)(\.\d+)?$/
+     console.log(regNumber.test("-111."))
+
+</script>
+</html>

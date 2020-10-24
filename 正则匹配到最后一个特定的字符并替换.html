@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>替换最后一个特定字符</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    let x = `如果的如果,是如果`
+    function replace(str){
+        // (.*)是贪婪匹配    后面的$n用来匹配第n个()里的内容
+        result = str.replace(/(.*)如果/,'$1没结果')
+        console.log(result)
+    }
+    replace(x)
+</script>
+</html>

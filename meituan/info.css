@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #f9f7f8;
+    padding: 45px 0 64px;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+header{
+    margin-bottom: 5px;
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+
+.navbar{
+    display: flex;
+    background: #fff;
+    color: #000;
+    height: 40px;
+}
+
+.navbar .navbar-return{
+    height: 40px;
+    line-height: 40px;
+}
+
+.icon{
+    flex: 1;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-left:3px solid #000;
+    border-bottom: 3px solid #000;
+    transform: rotate(45deg);
+    margin: 5px 15px;
+    /* margin: 0 0 4px 6px; */
+}
+
+.nav-name{
+    flex: 1;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 26px;
+    margin: 5px 15px 0 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.banner{
+    padding: 5px 10px;
+    background: #fff;
+    /* height: */
+}
+
+.banner img{
+    width: 100%;
+    box-shadow: 0 1px 2px rgba(0, 0,0, 0.2);
+}
+
+.info{
+    background: #fff;
+    padding-top: 10px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.info .info-price .strong{
+    font-size: 18px;
+    color: #f63;
+}
+
+.info .info-price .line-price{
+    font-size: 12px;
+    text-decoration: line-through;
+    columns: #666;
+}
+
+.info .buy{
+    font-size: 18px;
+    position: absolute;
+    right: 0;
+}
+
+.info-des{
+    background: #fff;
+    margin-bottom: 10px;
+}
+
+.menu{
+    background: #fff;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.menu-info{
+    font-size: 16px;
+    margin-bottom: 5px;
+
+}
+
+.menu-info .menu-price{
+    position: absolute;
+    right: 0;
+    color:#f63;
+
+}
+
+
+.pinglun{
+    /* background: #fff; */
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.pinglun .pingjia{
+    background: #fff;
+    font-size: 18px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.pinglun .item-box{
+    margin-top: 5px;
+    background: #fff;
+}
+
+.pinglun .item{
+    display: flex;
+    font-size: 15px;
+}
+
+.pinglun .item-img{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.item-img img{
+    width: 100%;
+    height: 100%;
+}

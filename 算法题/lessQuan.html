@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最少代金券数</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    var target_money = 30;
+    var price_list = [5, 20, 30, 50];
+    console.log(fn(target_money, price_list));
+     
+    function fn(tg, pl) {
+        var dp = [];
+        // 初始化矩阵，令每种钱解决0元的都为0张
+        // 初始化顶栏
+        for (let i = 0; i < pl.length; i++) {
+            dp.push([0])
+        }
+        // console.log(dp)
+        // 初始化左栏
+        for (let i = 1; i <= tg; i++) {
+            if (i % pl[0] == 0) dp[0][i] = parseInt(i / pl[0]);
+            // pl[0]为最小的，除不尽用无限大
+            else dp[0][i] = Infinity;
+        }
+        // 开始绘制整张表
+        for (let i = 1; i <= tg; i++) {
+            for (let j = 1; j < pl.length; j++) {
+                // 用不到pl[j]金额的
+                if (i < pl[j]) dp[j][i] = dp[j - 1][i];
+                // 金额相等一张就够了
+                else if (i == pl[j]) dp[j][i] = 1;
+                else {
+                    // 左边的
+                    var left = dp[j - 1][i];
+                    // 上方的
+                    var up = dp[j][i - pl[j]] + 1;
+                    // 取较小的存入
+                    dp[j][i] = left < up ? left : up;
+                }
+            }
+        }
+        var res = dp[pl.length - 1][tg]
+        // console.log(dp)
+        return res == Infinity ? "Impossible" : res;
+    }
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类型判断</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+    let classType = {}
+    'Array Date RegExp Object Error'.split(' ').forEach(e=> classType['[object ' + e + ']'] = e.toLowerCase())
+    console.log(classType)
+    function type(obj) {
+        // 判断null
+        if(obj == null) return String(obj)
+        // 不为null则分为object类型(包括array date regexp object类型)和其它基本数据类型两种判断 
+        return  typeof obj === 'object' ? classType[ Object.prototype.toString.call(obj)] || 'object': typeof obj
+    }
+    console.log(type(null))
+</script>
+</html>

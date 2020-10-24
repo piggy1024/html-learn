@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件代理</title>
+</head>
+<body>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    
+</body>
+<script type="text/javascript">
+    let list = document.getElementById('list')
+    list.addEventListener('click', (event)=>{
+        // console.log(event)
+        console.log(event.target)
+    })
+</script>
+</html>
